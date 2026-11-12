@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap');
+
+:root {
+  --navy-900: #0a1f44;
+  --navy-700: #12336b;
+  --blue-600: #1e4fa3;
+  --blue-100: #e6eefb;
+  --blue-50: #f3f7fd;
+  --border: #d5e0f2;
+  --text: #4a5d80;
+  --error-bg: #fdecec;
+  --error-text: #9b1c1c;
+  --bg: #ffffff;
+  --font: 'Manrope', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 32px 28px 28px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 24px 48px -24px rgba(10, 31, 68, 0.28);
+}
+
+.card-header h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--navy-900);
+}
+
+.card-header p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 6px;
+  background: var(--blue-50);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search:focus-within {
+  border-color: var(--blue-600);
+  box-shadow: 0 0 0 4px rgba(30, 79, 163, 0.16);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--navy-900);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.search input::placeholder {
+  color: #8a9bbb;
+}
+
+.search button {
+  padding: 12px 22px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--navy-900);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.search button:hover:not(:disabled) {
+  background: var(--navy-700);
+}
+
+.search button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.search button:focus-visible {
+  outline: 3px solid var(--blue-600);
+  outline-offset: 2px;
+}
+
+.search button:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+
+.result {
+  margin-top: 20px;
+  min-height: 24px;
+}
+
+.message {
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  border-radius: 16px;
+}
+
+.message.info {
+  color: var(--navy-700);
+  background: var(--blue-100);
+}
+
+.message.error {
+  color: var(--error-text);
+  background: var(--error-bg);
+}
+
+.weather {
+  padding: 24px;
+  background: var(--navy-900);
+  border-radius: 24px;
+  animation: reveal 0.35s ease-out;
+}
+
+.weather-place {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #b9cdf0;
+}
+
+.weather-temp {
+  margin: 4px 0 0;
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -4px;
+  color: #ffffff;
+}
+
+.weather-temp span {
+  margin-left: 4px;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: top;
+  color: #8fb0ea;
+}
+
+.weather-desc {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #dbe6fa;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 24px 0 0;
+}
+
+.weather-details div {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.weather-details dt {
+  font-size: 12px;
+  color: #9db8e6;
+}
+
+.weather-details dd {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    padding: 24px 18px 20px;
+    border-radius: 24px;
+  }
+
+  .weather-temp {
+    font-size: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather {
+    animation: none;
+  }
+
+  .search,
+  .search button {
+    transition: none;
+  }
+}
